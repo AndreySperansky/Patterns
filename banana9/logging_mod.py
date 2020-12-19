@@ -1,4 +1,4 @@
-from lesson_4.banana7.reusepatterns.singletones import SingletonByName
+from lesson_5.banana9.reusepatterns.singletones import SingletonByName
 import time
 
 

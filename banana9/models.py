@@ -1,4 +1,4 @@
-from lesson_4.banana7.reusepatterns.prototypes import PrototypeMixin
+from lesson_5.banana9.reusepatterns.prototypes import PrototypeMixin
 
 
 class User:

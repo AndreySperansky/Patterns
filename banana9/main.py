@@ -1,9 +1,9 @@
-from lesson_4.banana7.jinja import render
-from lesson_4.banana7.api import API, MockApplication
-from lesson_4.banana7.models import TrainingSite
-from lesson_4.banana7.logging_mod import Logger, debug
-from lesson_4.banana7.middleware import fronts
-# from lesson_4.banana7.urls import urlpatterns
+from lesson_5.banana9.jinja import render
+from lesson_5.banana9.api import API, MockApplication
+from lesson_5.banana9.models import TrainingSite
+from lesson_5.banana9.logging_mod import Logger, debug
+from lesson_5.banana9.middleware import fronts
+
 
 
 
@@ -68,9 +68,7 @@ def create_course(request):
 
 def create_category(request):
     if request['method'] == 'POST':
-        # метод пост
         data = request['data']
-        # print(data)
         name = data['name']
         category_id = data.get('category_id')
 
@@ -80,9 +78,7 @@ def create_category(request):
 
         new_category = site.create_category(name, category)
         site.categories.append(new_category)
-        # редирект?
-        # return '302 Moved Temporarily', render('create_course.html')
-        # Для начала можно без него
+
         return '200 OK', render('create_category.html')
     else:
         categories = site.categories
@@ -100,9 +96,8 @@ urlpatterns = {
     '/create-category/': create_category
 }
 
-# application = Application(urlpatterns, front_controllers)
-# proxy
-# application = DebugApplication(urlpatterns, front_controllers)
+
+# application = DebugApplication(urlpatterns, fronts)
 application = MockApplication(urlpatterns, fronts)
 
 
